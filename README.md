@@ -5,11 +5,11 @@ A fully functional, cute, and aesthetic interactive birthday website built with 
 ## ✨ Features
 - **Password Protection:** Unlock the surprise using the twins' birthday (DDMM format: `1504`).
 - **Interactive Hero:** Soft animations and floating hearts to set the mood.
-- **Dynamic Duo Section:** Personalized messages and images for both Diya and Drashti.
+- **Dynamic Duo Section:** Personalized messages for both Diya and Drashti.
 - **"How Late I Am" Timer:** Real-time counter tracking time since their birthday (April 15th).
 - **Interactive Scratch Cards:** Reveal hidden birthday wishes with a scratch-to-reveal effect and confetti celebration.
-- **Memory Scrapbook:** Polaroid-style gallery with hover effects and randomized rotations.
-- **Ambient Vibes:** Optional background music to enhance the experience.
+- **Future Adventures:** Interactive roadmap of upcoming celebrations and goals.
+- **Minimalist Aesthetic:** Focused on typography and clean animations, completely image-free for a fast and focused experience.
 
 ## 🚀 Getting Started
 

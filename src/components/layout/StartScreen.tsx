@@ -158,39 +158,39 @@ export default function StartScreen({ onStart }: { onStart: () => void }) {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[110] flex items-center justify-center bg-[#FFFAFB] overflow-hidden"
+      className="fixed inset-0 z-[110] flex items-center justify-center bg-[#FFFAFB] overflow-y-auto overflow-x-hidden"
     >
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#FFE4E1] via-[#FFF0F5] to-[#E6E6FA] opacity-70"></div>
       
-      {/* Dynamic Floating Decorations */}
+      {/* Dynamic Floating Decorations - Reduced for mobile performance and clarity */}
       <div className="absolute inset-0 z-10 pointer-events-none start-parallax-deep">
         {decorations.map((deco, i) => (
           <div
             key={deco.id}
-            className={`deco-item-${i} absolute opacity-40 text-pink-400`}
+            className={`deco-item-${i} absolute opacity-30 text-pink-400`}
             style={{ top: deco.top, left: deco.left }}
           >
-            {deco.type === 'heart' && <Heart size={deco.size} fill="currentColor" />}
-            {deco.type === 'sparkle' && <Sparkles size={deco.size} />}
-            {deco.type === 'star' && <Star size={deco.size} fill="currentColor" />}
+            {deco.type === 'heart' && <Heart size={deco.size * 0.8} fill="currentColor" />}
+            {deco.type === 'sparkle' && <Sparkles size={deco.size * 0.8} />}
+            {deco.type === 'star' && <Star size={deco.size * 0.8} fill="currentColor" />}
           </div>
         ))}
       </div>
 
       {/* Cloud-like blurred blobs */}
       <div className="absolute inset-0 z-0 pointer-events-none start-parallax-mid">
-        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-white blur-[120px] rounded-full opacity-60"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-pink-200 blur-[120px] rounded-full opacity-40" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-white blur-[80px] md:blur-[120px] rounded-full opacity-60"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-pink-200 blur-[80px] md:blur-[120px] rounded-full opacity-40" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="start-content-wrapper relative z-20 text-center space-y-6 md:space-y-12 px-6 max-w-4xl w-full">
+      <div className="start-content-wrapper relative z-20 text-center py-12 px-6 max-w-4xl w-full flex flex-col items-center gap-8 md:gap-16">
         {/* Main Heart Illustration */}
         <div className="start-heart-container relative inline-block">
           <div className="absolute inset-0 bg-pink-400 blur-3xl opacity-30 scale-150 rounded-full animate-pulse"></div>
           <div ref={heartRef} className="relative z-10 drop-shadow-[0_15px_35px_rgba(255,105,180,0.5)]">
             <Heart 
-              className="text-pink-600 w-[120px] h-[120px] md:w-[160px] md:h-[160px]" 
+              className="text-pink-600 w-[100px] h-[100px] md:w-[160px] md:h-[160px]" 
               fill="url(#heartGradientStart)" 
             />
             <svg width="0" height="0">
@@ -202,49 +202,49 @@ export default function StartScreen({ onStart }: { onStart: () => void }) {
               </defs>
             </svg>
             <div className="absolute -top-4 -right-4 animate-bounce">
-              <Sparkles className="text-pink-400" size={32} />
+              <Sparkles className="text-pink-400 w-6 h-6 md:w-8 md:h-8" />
             </div>
           </div>
         </div>
         
         {/* Animated Greeting */}
-        <div className="space-y-4">
-          <p className="text-pink-600 font-handwriting text-2xl md:text-3xl font-black animate-pulse drop-shadow-sm">Hey Twins! 👋💕</p>
-          <h1 className="text-5xl md:text-9xl font-black text-slate-900 tracking-tighter leading-none flex flex-wrap justify-center gap-x-4">
+        <div className="space-y-6 md:space-y-10 w-full">
+          <p className="text-pink-600 font-handwriting text-xl md:text-3xl font-black animate-pulse drop-shadow-sm">Hey Twins! 👋💕</p>
+          <h1 className="text-4xl sm:text-6xl md:text-9xl font-black text-slate-900 tracking-tighter leading-tight flex flex-wrap justify-center items-center gap-x-3 md:gap-x-6">
             <span className="start-title-word block">Hi</span>
             <span className="start-title-word block text-pink-600 drop-shadow-sm">Diya</span>
             <span className="start-title-word block">&</span>
             <span className="start-title-word block text-[#9370DB] drop-shadow-sm">Drashti!</span>
           </h1>
-          <div className="start-subtitle space-y-2">
-            <p className="text-2xl md:text-4xl text-slate-800 font-black italic tracking-tight drop-shadow-sm">
+          <div className="start-subtitle space-y-4">
+            <p className="text-xl md:text-4xl text-slate-800 font-black italic tracking-tight drop-shadow-sm leading-tight">
               Made a little something for you... ✨
             </p>
-            <p className="text-lg md:text-xl text-slate-500 font-black uppercase tracking-[0.5em]">Ready for it?</p>
+            <p className="text-sm md:text-xl text-slate-500 font-black uppercase tracking-[0.4em] md:tracking-[0.5em]">Ready for it?</p>
           </div>
         </div>
 
         {/* CTA Button */}
-        <div className="start-button-container pt-4 md:pt-10 relative group">
+        <div className="start-button-container relative group w-full flex flex-col items-center">
           <div className="absolute inset-0 bg-pink-500 blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
           <button
             ref={buttonRef}
             onClick={handleStart}
-            className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-pink-600 to-rose-400 text-white font-black text-2xl md:text-3xl px-14 py-7 rounded-full shadow-[0_20px_50px_rgba(225,29,72,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 border-4 border-white overflow-hidden uppercase tracking-widest"
+            className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-pink-600 to-rose-400 text-white font-black text-xl md:text-3xl px-10 md:px-14 py-5 md:py-7 rounded-full shadow-[0_15px_40px_rgba(225,29,72,0.4)] hover:scale-105 active:scale-95 transition-all duration-300 border-4 border-white overflow-hidden uppercase tracking-widest"
           >
             <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
             <span>Show Me! ✨</span>
-            <Gift size={32} className="group-hover:rotate-12 transition-transform duration-300" />
+            <Gift className="w-6 h-6 md:w-8 md:h-8 group-hover:rotate-12 transition-transform duration-300" />
           </button>
           
-          <div className="mt-8 flex flex-col items-center gap-2 text-slate-400 font-black uppercase text-xs tracking-[0.4em] animate-bounce">
-            <MousePointer2 size={20} />
+          <div className="mt-8 flex flex-col items-center gap-2 text-slate-400 font-black uppercase text-[10px] md:text-xs tracking-[0.4em] animate-bounce">
+            <MousePointer2 className="w-4 h-4 md:w-5 md:h-5" />
             <span>Click to start the chaos</span>
           </div>
         </div>
 
         {/* Glassmorphism Info Badges */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 md:pt-12 px-4 md:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 w-full">
           {[
             { icon: Heart, label: "Made by Me", val: "With Love" },
             { icon: Sparkles, label: "Just for", val: "The Twins" },
@@ -252,14 +252,14 @@ export default function StartScreen({ onStart }: { onStart: () => void }) {
           ].map((item, i) => (
             <div 
               key={i} 
-              className="start-footer-item bg-white/95 p-6 rounded-[35px] flex flex-col items-center justify-center gap-4 border-4 border-pink-50 shadow-xl hover:border-pink-200 transition-all group"
+              className="start-footer-item bg-white/95 p-5 md:p-8 rounded-[30px] md:rounded-[40px] flex flex-row sm:flex-col items-center sm:justify-center gap-4 border-2 md:border-4 border-pink-50 shadow-lg hover:border-pink-200 transition-all group"
             >
-              <div className="bg-pink-50 p-3 rounded-full shadow-inner text-pink-600 group-hover:scale-110 transition-transform">
-                <item.icon size={24} />
+              <div className="bg-pink-50 p-2.5 md:p-4 rounded-full shadow-inner text-pink-600 group-hover:scale-110 transition-transform flex-shrink-0">
+                <item.icon className="w-5 h-5 md:w-7 md:h-7" />
               </div>
-              <div className="text-center">
-                <p className="text-[11px] uppercase tracking-widest text-slate-400 font-black mb-1">{item.label}</p>
-                <p className="text-base font-black text-pink-700">{item.val}</p>
+              <div className="text-left sm:text-center">
+                <p className="text-[9px] md:text-[11px] uppercase tracking-widest text-slate-400 font-black mb-1">{item.label}</p>
+                <p className="text-sm md:text-lg font-black text-pink-700 leading-none">{item.val}</p>
               </div>
             </div>
           ))}

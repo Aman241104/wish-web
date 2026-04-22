@@ -139,17 +139,17 @@ export default function Hero() {
       {/* Content Layer */}
       <div className="relative z-20 space-y-8 max-w-4xl w-full">
         <div className="space-y-2">
-          <h1 ref={titleRef} className="text-5xl md:text-9xl font-black text-foreground tracking-tighter leading-none flex flex-col items-center">
+          <h1 ref={titleRef} className="text-5xl sm:text-7xl md:text-9xl font-black text-foreground tracking-tighter leading-tight md:leading-none flex flex-col items-center">
             <span className="hero-text-line block drop-shadow-sm">Happy</span>
             <span className="hero-text-line block drop-shadow-sm">Birthday</span>
-            <span className="hero-text-line hero-names block text-gradient py-4 scale-105">
+            <span className="hero-text-line hero-names block text-gradient py-2 md:py-4 scale-105">
               Diya & Drashti!
             </span>
           </h1>
         </div>
         
         <div className="parallax-mid">
-          <p className="hero-subtitle text-lg md:text-4xl font-bold text-foreground/40 italic tracking-tight px-4 drop-shadow-sm leading-tight">
+          <p className="hero-subtitle text-xl md:text-4xl font-bold text-foreground/40 italic tracking-tight px-4 drop-shadow-sm leading-tight">
             &quot;I may be late... but this is worth it 💖&quot;
           </p>
         </div>

@@ -9,7 +9,7 @@ import Apology from "@/components/sections/Apology";
 import Twins from "@/components/sections/Twins";
 import LateTimer from "@/components/sections/LateTimer";
 import ScratchCardSection from "@/components/sections/ScratchCardSection";
-import Scrapbook from "@/components/sections/Scrapbook";
+import Adventures from "@/components/sections/Adventures";
 import Closing from "@/components/sections/Closing";
 import FloatingHearts from "@/components/ui/FloatingHearts";
 
@@ -39,7 +39,6 @@ export default function MainContent() {
       <Twins />
       <LateTimer />
       <ScratchCardSection />
-      <Scrapbook />
       <Closing />
     </main>
   );

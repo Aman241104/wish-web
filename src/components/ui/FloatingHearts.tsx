@@ -3,11 +3,9 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Heart } from "lucide-react";
-import { useSound } from "@/hooks/useSound";
 
 export default function FloatingHearts() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { playSFX } = useSound();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -37,7 +35,6 @@ export default function FloatingHearts() {
   }, []);
 
   const handleHeartClick = (e: React.MouseEvent<SVGElement>) => {
-    playSFX('pop');
     const heart = e.currentTarget;
     
     gsap.to(heart, {

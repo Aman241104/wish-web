@@ -158,12 +158,12 @@ export default function Closing() {
           </div>
           
           <p className="closing-subtitle text-xl md:text-3xl text-foreground/30 font-medium italic tracking-tight">
-            &quot;Better late than never... right? 😅&quot;
+            &quot;Sorry for being a turtle with the wish... 🐢 hope this made up for it!&quot;
           </p>
-          </div>
+        </div>
 
-          {/* Message Card Area */}
-          <div className="closing-action-area flex justify-center pt-8">
+        {/* Message Card Area */}
+        <div className="closing-action-area flex justify-center pt-8">
           {!showFinal ? (
             <button
               onClick={handleLastThing}
@@ -183,11 +183,11 @@ export default function Closing() {
               </div>
 
               <p className="text-3xl md:text-5xl font-black text-pink-500 leading-tight tracking-tight">
-                You both are literally <br className="hidden md:block" /> my favorite part of everything.
+                You both are the absolute <br className="hidden md:block" /> best part of everything.
               </p>
 
               <p className="mt-8 text-2xl md:text-3xl font-bold text-[#333] opacity-80">
-                Happy Birthday, <br /> you <span className="text-purple-400">absolute legends!</span> 🎂✨
+                Happy Birthday to my <br /> favorite <span className="text-purple-400">absolute legends!</span> 🎂✨
               </p>              
               <div className="mt-12 flex justify-center gap-6">
                 <div className="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-pink-400 shadow-inner">

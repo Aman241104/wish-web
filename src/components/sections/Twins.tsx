@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Heart, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { TWIN_DATA } from "@/constants";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -28,7 +27,6 @@ interface TwinData {
   lightColor: string;
   accent: string;
   message: string;
-  image: string;
 }
 
 const TwinCard = ({ data }: { data: TwinData }) => {
@@ -40,12 +38,10 @@ const TwinCard = ({ data }: { data: TwinData }) => {
 
     const ctx = gsap.context(() => {
       card.addEventListener("mouseenter", () => {
-        gsap.to(".twin-image-wrapper", { scale: 1.05, rotate: 2, duration: 0.6, ease: "power2.out" });
         gsap.to(".twin-name-text", { x: 10, duration: 0.4, ease: "back.out(2)" });
       });
 
       card.addEventListener("mouseleave", () => {
-        gsap.to(".twin-image-wrapper", { scale: 1, rotate: 0, duration: 0.6, ease: "power2.inOut" });
         gsap.to(".twin-name-text", { x: 0, duration: 0.4, ease: "power2.inOut" });
       });
     }, cardRef);
@@ -57,36 +53,20 @@ const TwinCard = ({ data }: { data: TwinData }) => {
     <div 
       ref={cardRef}
       className={cn(
-        "twin-card relative p-6 md:p-12 rounded-[30px] md:rounded-[60px] shadow-[0_30px_80px_rgba(0,0,0,0.05)] transition-all duration-700 hover:-translate-y-4 border-4 md:border-[12px] border-white overflow-hidden",
+        "twin-card relative p-12 md:p-24 rounded-[40px] md:rounded-[80px] shadow-[0_30px_80px_rgba(0,0,0,0.05)] transition-all duration-700 hover:-translate-y-4 border-4 md:border-[12px] border-white overflow-hidden flex flex-col items-center justify-center text-center",
         data.lightColor
       )}
     >
       <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')] pointer-events-none"></div>
       
-      <div className="twin-image-wrapper relative aspect-[4/5] mb-6 md:mb-10 overflow-hidden rounded-[24px] md:rounded-[40px] shadow-2xl border-4 border-white bg-white/50">
-        <Image 
-          src={data.image} 
-          alt={data.name}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-
-      <div className="relative z-10 space-y-4 md:space-y-6">
+      <div className="relative z-10 space-y-8 md:space-y-12">
         <div className="space-y-1">
-          <div className="flex items-center gap-4">
-            <h3 className={cn("twin-name-text text-3xl md:text-5xl font-black italic tracking-tighter", data.accent)}>
-              {data.name}
-            </h3>
-            <div className="bg-white/60 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-foreground/40 shadow-sm border border-white">
-              {data.nickname}
-            </div>
-          </div>
-          <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-foreground/30">{data.personality}</p>
+          <h3 className={cn("twin-name-text text-5xl md:text-9xl font-black italic tracking-tighter leading-none", data.accent)}>
+            {data.name}
+          </h3>
         </div>
 
-        <p className="text-base md:text-lg leading-relaxed text-foreground/70 font-bold italic">
+        <p className="text-xl md:text-3xl leading-relaxed text-foreground/70 font-bold italic max-w-2xl mx-auto">
           &quot;{data.message}&quot;
         </p>
       </div>
