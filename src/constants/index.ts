@@ -7,7 +7,7 @@ export const TWIN_DATA = {
     color: "bg-pink-pastel",
     lightColor: "bg-pink-light",
     accent: "text-pink-500",
-    message: "Okay, I'm late, but honestly? I was just giving you more time to stay 21 (or however old we're pretending to be). I really hope this year is huge for you. More cafes to discover, way more shopping bags to carry, and finally getting that driving license so you can zoom around! Most importantly, I hope you see yourself the way everyone else does—absolute perfection, no insecurities allowed. 💖",
+    message: "Okay, I'm late, but honestly? I was just giving you more time to stay 18. I really hope 19 is a huge year for you. More cafes to discover, way more shopping bags to carry, and finally getting that driving license so you can zoom around! Most importantly, I hope you see yourself the way everyone else does—absolute perfection, no insecurities allowed. 💖",
     scratchMessage: "I promise to go to every single 'boring' cafe you find just to take your photos until we get the right one. 📸✨",
   },
   drashti: {
